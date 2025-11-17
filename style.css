@@ -1,0 +1,1028 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    min-height: 100vh;
+    color: #333;
+    position: relative;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Giriş Ekranı */
+.login-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: 
+        url('images/sanateli.jpeg'),
+        url('images/sanateli4.jpeg'),
+        url('images/sanateli2.png');
+    background-position: 
+        left center,
+        center center,
+        right center;
+    background-size: 
+        33.33% 100%,
+        33.33% 100%,
+        33.33% 100%;
+    background-repeat: 
+        repeat-y,
+        repeat-y,
+        repeat-y;
+    position: relative;
+}
+
+
+.login-screen > * {
+    position: relative;
+    z-index: 1;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 25px 35px;
+    border-radius: 15px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.company-name {
+    color: #2c3e50;
+    margin-bottom: 6px;
+    font-size: 1.5em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    color: #6c757d;
+    margin-bottom: 20px;
+    font-size: 0.85em;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-style: italic;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+    color: #2c3e50;
+    margin-bottom: 6px;
+    font-size: 1.5em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-container p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.user-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.user-btn {
+    flex: 1;
+    padding: 18px 22px;
+    background: white;
+    color: #2c3e50;
+    border: 2px solid #e9ecef;
+    border-radius: 15px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    min-width: 150px;
+}
+
+.user-btn:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+    border-color: #d0d0d0;
+    background: #ffffff;
+}
+
+.user-btn span {
+    color: #2c3e50;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.user-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #e9ecef;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.user-btn:hover .user-avatar {
+    transform: scale(1.08);
+    border-color: #d0d0d0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.user-icon {
+    font-size: 2em;
+}
+
+/* Ana Uygulama */
+.app-screen {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    min-height: 100vh;
+    position: relative;
+}
+
+.app-screen > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 25px 35px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.header-title {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.logo-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.header .company-name {
+    color: #ff6b35;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    text-transform: uppercase;
+}
+
+.header .subtitle {
+    color: #6c757d;
+    font-size: 1.15em;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 1px;
+    font-style: italic;
+}
+
+.header h1 {
+    color: #667eea;
+    font-size: 2em;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.current-user {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.current-user strong {
+    color: #9db4f5;
+}
+
+.logout-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.logout-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.logout-btn:hover::before {
+    left: 100%;
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.logout-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
+}
+
+/* Takvim Kontrolleri */
+.calendar-controls {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px 30px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.calendar-controls h2 {
+    color: #333;
+    font-size: 1.8em;
+    flex: 1;
+    text-align: center;
+}
+
+.nav-btn {
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #ffc107 0%, #ff6b35 100%);
+    color: #2c3e50;
+    border: 2px solid rgba(255, 193, 7, 0.3);
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 12px rgba(255, 193, 7, 0.3);
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+    background: linear-gradient(135deg, #ffd54f 0%, #ff8c42 100%);
+    border-color: rgba(255, 193, 7, 0.5);
+}
+
+/* Takvim */
+.calendar-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3), 0 4px 12px rgba(255, 107, 53, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.weekday {
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #667eea;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 10px;
+    font-size: 1.05em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.calendar-day {
+    min-height: 140px;
+    padding: 14px;
+    border: 2px solid #e8e8e8;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.95) 100%);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.calendar-day::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b35 0%, #ff8c42 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+}
+
+.calendar-day:hover::before {
+    transform: scaleX(1);
+}
+
+.calendar-day:hover {
+    border-color: #ff6b35;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 248, 245, 1) 100%);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.25);
+}
+
+.calendar-day.other-month {
+    opacity: 0.35;
+    background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
+}
+
+.calendar-day.holiday {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-color: #ff9800;
+    position: relative;
+}
+
+.calendar-day.holiday::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 8px;
+    height: 8px;
+    background: #ff6b35;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(255, 107, 53, 0.5);
+}
+
+.calendar-day.holiday .day-number {
+    color: #e65100;
+    font-weight: 800;
+}
+
+.holiday-label {
+    font-size: 0.65em;
+    font-weight: 600;
+    color: #e65100;
+    margin-top: 4px;
+    padding: 2px 6px;
+    background: rgba(255, 152, 0, 0.2);
+    border-radius: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+}
+
+.day-number {
+    font-weight: 700;
+    font-size: 1.15em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    position: relative;
+    z-index: 1;
+}
+
+.day-events {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.event-item {
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 6px solid;
+    margin-bottom: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.event-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.event-item:hover {
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Organizasyon kategorisi renkleri */
+.event-item.category-kina {
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    border-left-color: #d32f2f;
+    color: #b71c1c;
+    box-shadow: 0 2px 8px rgba(211, 47, 47, 0.2);
+}
+
+.event-item.category-nisan {
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    border-left-color: #e91e63;
+    color: #c2185b;
+    box-shadow: 0 2px 8px rgba(233, 30, 99, 0.2);
+}
+
+.event-item.category-dogum-gunu {
+    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    border-left-color: #9c27b0;
+    color: #6a1b9a;
+    box-shadow: 0 2px 8px rgba(156, 39, 176, 0.2);
+}
+
+.event-item.category-babyshower {
+    background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+    border-left-color: #03a9f4;
+    color: #0277bd;
+    box-shadow: 0 2px 8px rgba(3, 169, 244, 0.2);
+}
+
+.event-item.category-diger {
+    background: linear-gradient(135deg, #eceff1 0%, #cfd8dc 100%);
+    border-left-color: #212121;
+    color: #000000;
+    box-shadow: 0 2px 8px rgba(33, 33, 33, 0.2);
+}
+
+/* Organizasyon türü renkleri - Paketler (eski sistem - geriye dönük uyumluluk) */
+.event-item.type-gold {
+    background: linear-gradient(135deg, #fff9e6 0%, #ffeb3b 100%);
+    border-left-color: #ffc107;
+    color: #f57f17;
+}
+
+.event-item.type-silver {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    border-left-color: #9e9e9e;
+    color: #616161;
+}
+
+.event-item.type-standart {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-left-color: #2196f3;
+    color: #1565c0;
+}
+
+/* Ödeme yapıldı durumu - Yeşil */
+.event-item.payment-done {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%) !important;
+    border-left-color: #4caf50 !important;
+    color: #2e7d32 !important;
+}
+
+/* Yönetici renkleri (eski sistem - geriye dönük uyumluluk için) */
+.event-item.serhat {
+    background: #e3f2fd;
+    border-left-color: #2196f3;
+    color: #1565c0;
+}
+
+.event-item.firat {
+    background: #fff3e0;
+    border-left-color: #ff9800;
+    color: #e65100;
+}
+
+.event-time {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.event-name {
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 250, 245, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 45px;
+    max-width: 650px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 35px 90px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(255, 107, 53, 0.2);
+    border: 3px solid rgba(255, 193, 7, 0.3);
+    position: relative;
+    margin: auto;
+    overflow-x: hidden;
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #ff6b35 0%, #ffc107 50%, #ff8c42 100%);
+    border-radius: 30px 30px 0 0;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid rgba(255, 193, 7, 0.3);
+}
+
+.modal-header h2 {
+    color: #ff6b35;
+    font-size: 2em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 6px rgba(255, 107, 53, 0.3);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 22px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #444;
+    font-weight: 600;
+    font-size: 0.95em;
+    letter-spacing: 0.3px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+    border-color: #ffc107;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+    transform: translateY(-1px);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #ff6b35;
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.15), 0 4px 15px rgba(255, 107, 53, 0.2);
+    transform: translateY(-2px);
+    background: white;
+}
+
+.readonly-input {
+    background: #f5f5f5 !important;
+    cursor: not-allowed;
+    color: #666;
+}
+
+.date-input-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.date-input-group input[type="date"] {
+    flex: 1;
+}
+
+.checkbox-label-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #666;
+    white-space: nowrap;
+}
+
+.checkbox-label-inline input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #9db4f5;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.checkbox-group:hover {
+    border-color: #ffc107;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+}
+
+.form-group:focus-within .checkbox-group {
+    border-color: #ff6b35;
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.15), 0 4px 15px rgba(255, 107, 53, 0.2);
+}
+
+.checkbox-group .checkbox-label-inline {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s ease;
+}
+
+.checkbox-group .checkbox-label-inline:hover {
+    background: rgba(255, 193, 7, 0.1);
+    transform: translateY(-1px);
+}
+
+.checkbox-group .checkbox-label-inline input[type="checkbox"]:checked + span {
+    font-weight: 600;
+    color: #ff6b35;
+}
+
+.payment-checkbox {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #4caf50;
+}
+
+/* Ödeme yapıldı durumunda form alanlarını yeşil yap */
+.form-group.payment-done input,
+.form-group.payment-done select,
+.form-group.payment-done textarea {
+    background: #e8f5e9 !important;
+    border-color: #4caf50 !important;
+}
+
+.modal-content.payment-done {
+    border: 3px solid #4caf50;
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath fill='%23667eea' d='M7 10L2 5h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat !important;
+    background-position: right 15px center !important;
+    background-size: 14px 14px !important;
+    padding-right: 45px;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+.form-group select:focus {
+    background-color: white !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath fill='%23764ba2' d='M7 10L2 5h10z'/%3E%3C/svg%3E") !important;
+    background-size: 14px 14px !important;
+    background-repeat: no-repeat !important;
+    background-position: right 15px center !important;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 3px solid rgba(255, 193, 7, 0.2);
+}
+
+.btn {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ffc107 0%, #ff6b35 100%);
+    color: #2c3e50;
+    border: 2px solid rgba(255, 193, 7, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(255, 107, 53, 0.5);
+    background: linear-gradient(135deg, #ffd54f 0%, #ff8c42 100%);
+    border-color: rgba(255, 193, 7, 0.5);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    color: white;
+    border: 2px solid rgba(149, 165, 166, 0.3);
+    box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(127, 140, 141, 0.4);
+    background: linear-gradient(135deg, #aab7b8 0%, #859596 100%);
+    border-color: rgba(149, 165, 166, 0.5);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    border: 2px solid rgba(231, 76, 60, 0.3);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+}
+
+.btn-danger:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(231, 76, 60, 0.5);
+    background: linear-gradient(135deg, #ec7063 0%, #d32f2f 100%);
+    border-color: rgba(231, 76, 60, 0.5);
+}
+
+/* Ay Sonu Toplam */
+.month-total {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 25px 30px;
+    border-radius: 18px;
+    margin-top: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.month-total-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.month-total-content h3 {
+    color: #2c3e50;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.total-amount {
+    color: #2c3e50;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Son Güncelleme Bilgisi */
+.last-update-info {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.last-update-text {
+    color: #6c757d;
+    font-size: 0.9em;
+    font-style: italic;
+    margin: 0;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 60px 40px;
+        max-width: 95%;
+    }
+
+    .company-name {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1.1em;
+    }
+
+    .user-avatar {
+        width: 150px;
+        height: 150px;
+    }
+
+    .user-btn {
+        padding: 40px 30px;
+        min-width: 200px;
+        font-size: 1.3em;
+    }
+
+    .calendar-day {
+        min-height: 80px;
+        padding: 5px;
+    }
+
+    .event-item {
+        font-size: 0.75em;
+        padding: 3px 5px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .calendar-controls {
+        flex-direction: column;
+    }
+
+    .user-buttons {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        padding: 20px;
+        max-width: 95%;
+    }
+
+    .date-input-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .month-total-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .total-amount {
+        font-size: 1.5em;
+    }
+}
+

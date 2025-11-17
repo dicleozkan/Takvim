@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANATELİ EVENT HOUSE - Organizasyon Takvimi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Giriş Ekranı -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <h1 class="company-name">SANATELİ EVENT HOUSE</h1>
+            <h2 class="subtitle">Organizasyon Takvimi</h2>
+            <div class="user-buttons">
+                <button class="user-btn" onclick="selectUser('Serhat')">
+                    <div class="user-avatar">
+                        <img src="images/images.jpg" alt="Serhat">
+                    </div>
+                    <span>Serhat</span>
+                </button>
+                <button class="user-btn" onclick="selectUser('Fırat')">
+                    <div class="user-avatar">
+                        <img src="images/images.jpg" alt="Fırat">
+                    </div>
+                    <span>Fırat</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ana Uygulama -->
+    <div id="appScreen" class="app-screen hidden">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-title">
+                    <div class="logo-title-wrapper">
+                        <img src="images/images.jpg" alt="Logo" class="header-logo">
+                        <div>
+                            <h1 class="company-name">SANATELİ EVENT HOUSE</h1>
+                            <h2 class="subtitle">Organizasyon Takvimi</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-info">
+                    <span class="current-user">Hoş geldiniz, <strong id="currentUserName"></strong></span>
+                    <button class="logout-btn" onclick="logout()">Çıkış</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Takvim Kontrolleri -->
+        <div class="calendar-controls">
+            <button class="nav-btn" onclick="changeMonth(-1)">← Önceki Ay</button>
+            <h2 id="currentMonthYear"></h2>
+            <button class="nav-btn" onclick="changeMonth(1)">Sonraki Ay →</button>
+        </div>
+
+        <!-- Takvim Grid -->
+        <div class="calendar-container">
+            <div class="calendar-weekdays">
+                <div class="weekday">Pazartesi</div>
+                <div class="weekday">Salı</div>
+                <div class="weekday">Çarşamba</div>
+                <div class="weekday">Perşembe</div>
+                <div class="weekday">Cuma</div>
+                <div class="weekday">Cumartesi</div>
+                <div class="weekday">Pazar</div>
+            </div>
+            <div id="calendarGrid" class="calendar-grid"></div>
+        </div>
+
+        <!-- Ay Sonu Toplam -->
+        <div class="month-total">
+            <div class="month-total-content">
+                <h3>Bu Ay Toplam Ödenen Tutar</h3>
+                <div class="total-amount" id="monthTotalAmount">0.00 ₺</div>
+            </div>
+        </div>
+
+        <!-- Organizasyon Modal -->
+        <div id="eventModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalTitle">REZERVASYON BİLGİLERİ</h2>
+                    <button class="close-btn" onclick="closeModal()">&times;</button>
+                </div>
+                <form id="eventForm" onsubmit="saveEvent(event)">
+                    <div class="form-group">
+                        <label for="reservationDate">Rezervasyon Tarihi</label>
+                        <div class="date-input-group">
+                            <input type="date" id="reservationDate" readonly class="readonly-input">
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" id="editReservationDate" onchange="toggleReservationDateEdit()">
+                                <span>Tarihi Güncelle</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventCategory">Organizasyon Adı *</label>
+                        <select id="eventCategory" required onchange="handleEventCategoryChange()">
+                            <option value="">Seçiniz...</option>
+                            <option value="kina">Kına</option>
+                            <option value="nisan">Nişan</option>
+                            <option value="dogum-gunu">Doğum Günü</option>
+                            <option value="babyshower">Babyshower</option>
+                            <option value="diger">Diğer</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="otherCategoryGroup" style="display: none;">
+                        <label for="otherCategory">Diğer (Belirtiniz) *</label>
+                        <input type="text" id="otherCategory" placeholder="Organizasyon adını yazın...">
+                    </div>
+                    <div class="form-group">
+                        <label for="eventType">Organizasyon Türü (Paket) *</label>
+                        <select id="eventType" required>
+                            <option value="">Seçiniz...</option>
+                            <option value="gold">Gold Paket</option>
+                            <option value="silver">Silver Paket</option>
+                            <option value="standart">Standart Paket</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventCouple">Çift İsimleri</label>
+                        <input type="text" id="eventCouple" placeholder="Örn: Ahmet & Ayşe">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone1">Telefon 1</label>
+                            <input type="tel" id="phone1" placeholder="Telefon numarası" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone2">Telefon 2</label>
+                            <input type="tel" id="phone2" placeholder="Telefon numarası" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="photoPermission">Fotoğraf Paylaşım İzni</label>
+                        <select id="photoPermission">
+                            <option value="">Seçiniz...</option>
+                            <option value="evet">Evet</option>
+                            <option value="hayir">Hayır</option>
+                            <option value="bilinmiyor">Bilinmiyor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guestCount">Davetli Sayısı</label>
+                        <input type="number" id="guestCount" min="0" placeholder="Davetli sayısını girin">
+                    </div>
+                    <div class="form-group">
+                        <label for="photoSelection">Fotoğraf Seçimi</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="photoSelection" value="fotograf">
+                                <span>Fotoğraf</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="photoSelection" value="klip">
+                                <span>Klip</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="photoSelection" value="uzun-video">
+                                <span>Uzun video</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="photoSelection" value="album">
+                                <span>Albüm</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="photoSelection" value="flash-bellek">
+                                <span>Flash bellek</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="photoSelection" value="foto-baski">
+                                <span>Foto baskı</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="menuSelection">Menü Seçimi</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="menuSelection" value="dilim-pasta">
+                                <span>Dilim pasta</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="menuSelection" value="tatli-kurabiye">
+                                <span>Tatlı kurabiye</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="menuSelection" value="tuzlu-kurabiye">
+                                <span>Tuzlu kurabiye</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="menuSelection" value="mini-pogaca">
+                                <span>Mini poğaça</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="menuSelection" value="su-boregi">
+                                <span>Su böreği</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="menuSelection" value="mercimek-koftesi">
+                                <span>Mercimek köftesi</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="menuSelection" value="amerikan-salatasi">
+                                <span>Amerikan salatası</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="menuSelection" value="sariyer-kola">
+                                <span>Sarıyer Kola</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="menuSelection" value="sariyer-portakal">
+                                <span>Sarıyer Portakal</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="menuSelection" value="limonata">
+                                <span>Limonata</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="menuSelection" value="su">
+                                <span>Su</span>
+                            </label>
+                            <label class="checkbox-label-inline">
+                                <input type="checkbox" name="menuSelection" value="cay-kazan">
+                                <span>Çay(Kazan)</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="startTime">Başlangıç Saati *</label>
+                            <input type="time" id="startTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endTime">Bitiş Saati *</label>
+                            <input type="time" id="endTime" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="totalPrice">Toplam Ücret</label>
+                        <input type="number" id="totalPrice" min="0" step="0.01" placeholder="0.00" oninput="calculateRemaining()">
+                    </div>
+                    <div class="form-group">
+                        <label for="deposit">Kapora</label>
+                        <input type="number" id="deposit" min="0" step="0.01" placeholder="0.00" oninput="calculateRemaining()">
+                    </div>
+                    <div class="form-group">
+                        <label for="remainingPrice">Kalan Ücret</label>
+                        <input type="number" id="remainingPrice" readonly placeholder="0.00" class="readonly-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="eventNotes">Önemli Notlar</label>
+                        <textarea id="eventNotes" rows="4" placeholder="Önemli detayları buraya yazın..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal()">İptal</button>
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <button type="button" class="btn btn-danger" id="deleteBtn" onclick="deleteEvent()" style="display: none;">Sil</button>
+                    </div>
+                    <div class="form-group payment-checkbox">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="paymentDone" onchange="togglePaymentStatus()">
+                            <span>Ödeme Yapıldı</span>
+                        </label>
+                    </div>
+                    <div class="form-group last-update-info">
+                        <p class="last-update-text" id="lastUpdateText"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
