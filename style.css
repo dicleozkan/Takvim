@@ -954,75 +954,347 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+    /* Genel */
+    body {
+        font-size: 14px;
+    }
+
+    .app-screen {
+        padding: 10px;
+    }
+
+    /* Giriş Ekranı */
+    .login-screen {
+        padding: 15px;
+        background-size: 100% 100%, 100% 100%, 100% 100%;
+    }
+
     .login-container {
-        padding: 60px 40px;
+        padding: 25px 20px;
         max-width: 95%;
+        border-radius: 15px;
     }
 
     .company-name {
-        font-size: 2em;
+        font-size: 1.4em;
+        margin-bottom: 6px;
     }
 
     .subtitle {
-        font-size: 1.1em;
+        font-size: 0.85em;
+        margin-bottom: 20px;
     }
 
     .user-avatar {
-        width: 150px;
-        height: 150px;
+        width: 90px;
+        height: 90px;
     }
 
     .user-btn {
-        padding: 40px 30px;
-        min-width: 200px;
-        font-size: 1.3em;
-    }
-
-    .calendar-day {
-        min-height: 80px;
-        padding: 5px;
-    }
-
-    .event-item {
-        font-size: 0.75em;
-        padding: 3px 5px;
-    }
-
-    .header-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .calendar-controls {
-        flex-direction: column;
+        padding: 18px 22px;
+        min-width: 100%;
+        font-size: 0.95em;
+        gap: 10px;
     }
 
     .user-buttons {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
+        width: 100%;
     }
 
-    .form-row {
-        grid-template-columns: 1fr;
+    /* Header */
+    .header {
+        padding: 15px 20px;
+        border-radius: 15px;
+        margin-bottom: 15px;
     }
 
-    .modal-content {
-        padding: 20px;
-        max-width: 95%;
-    }
-
-    .date-input-group {
+    .header-content {
         flex-direction: column;
         align-items: flex-start;
+        gap: 15px;
+    }
+
+    .logo-title-wrapper {
+        width: 100%;
+        gap: 12px;
+    }
+
+    .header-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .header .company-name {
+        font-size: 1.3em;
+        letter-spacing: 1px;
+    }
+
+    .header .subtitle {
+        font-size: 0.9em;
+    }
+
+    .user-info {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .current-user {
+        font-size: 0.9em;
+    }
+
+    .logout-btn {
+        padding: 10px 18px;
+        font-size: 0.85em;
+        width: auto;
+    }
+
+    /* Takvim Kontrolleri */
+    .calendar-controls {
+        padding: 15px 20px;
+        border-radius: 15px;
+        margin-bottom: 15px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .calendar-controls h2 {
+        font-size: 1.3em;
+        order: -1;
+    }
+
+    .nav-btn {
+        padding: 10px 18px;
+        font-size: 0.85em;
+        width: 100%;
+    }
+
+    /* Takvim */
+    .calendar-container {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .calendar-weekdays {
+        gap: 5px;
+        margin-bottom: 8px;
+    }
+
+    .weekday {
+        padding: 8px 4px;
+        font-size: 0.75em;
+        border-radius: 8px;
+    }
+
+    .calendar-grid {
+        gap: 5px;
+    }
+
+    .calendar-day {
+        min-height: 70px;
+        padding: 6px;
+        border-radius: 10px;
+        border-width: 1px;
+    }
+
+    .day-number {
+        font-size: 0.9em;
+        margin-bottom: 5px;
+    }
+
+    .event-item {
+        font-size: 0.7em;
+        padding: 4px 6px;
+        margin-bottom: 3px;
+        border-radius: 6px;
+    }
+
+    .event-time {
+        font-size: 0.75em;
+    }
+
+    .event-name {
+        font-size: 0.7em;
+    }
+
+    /* Ay Sonu Toplam */
+    .month-total {
+        margin-top: 15px;
+        padding: 15px;
     }
 
     .month-total-content {
         flex-direction: column;
         text-align: center;
+        gap: 10px;
+    }
+
+    .month-total-content h3 {
+        font-size: 0.95em;
     }
 
     .total-amount {
-        font-size: 1.5em;
+        font-size: 1.3em;
+    }
+
+    /* Modal */
+    .modal {
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+    .modal-content {
+        padding: 25px 20px;
+        max-width: 100%;
+        max-height: 95vh;
+        border-radius: 20px;
+        margin: auto 0;
+    }
+
+    .modal-header {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.4em;
+    }
+
+    .close-btn {
+        font-size: 1.8em;
+    }
+
+    /* Form */
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group label {
+        font-size: 0.9em;
+        margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 12px 15px;
+        font-size: 0.95em;
+        border-radius: 10px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .date-input-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .date-input-group input[type="date"] {
+        width: 100%;
+    }
+
+    /* Checkbox Groups */
+    .checkbox-group {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .checkbox-group .checkbox-label-inline {
+        padding: 6px 10px;
+        font-size: 0.85em;
+    }
+
+    .checkbox-group .checkbox-label-inline input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Butonlar */
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px 24px;
+        font-size: 0.95em;
+    }
+
+    .checkbox-label {
+        font-size: 1em;
+    }
+
+    .payment-checkbox {
+        margin-top: 15px;
+        padding-top: 15px;
+    }
+}
+
+/* Çok küçük ekranlar (480px ve altı) */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 20px 15px;
+    }
+
+    .company-name {
+        font-size: 1.2em;
+    }
+
+    .user-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .header {
+        padding: 12px 15px;
+    }
+
+    .header-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header .company-name {
+        font-size: 1.1em;
+    }
+
+    .calendar-day {
+        min-height: 60px;
+        padding: 4px;
+    }
+
+    .event-item {
+        font-size: 0.65em;
+        padding: 3px 4px;
+    }
+
+    .modal-content {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.2em;
+    }
+
+    .checkbox-group {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .checkbox-group .checkbox-label-inline {
+        padding: 5px 8px;
+        font-size: 0.8em;
     }
 }
 
